@@ -111,8 +111,8 @@ body {
     transition: all 0.5s;
 }
 
-.btn--big {
-    content:attr('data-type');
+.btn--big::after {
+    content:attr(data-type);
     font-size: 1rem;
     color:#445361;
     position: relative;
