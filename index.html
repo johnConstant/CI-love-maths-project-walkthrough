@@ -15,10 +15,10 @@
     </h1>
     <div class="game-area">
         <div class="controls-area">
-            <button class="btn btn--big btn--red"><i class="fas fa-plus"></i></button>
-            <button class="btn btn--big btn--yellow"><i class="fas fa-minus"></i></button>
-            <button class="btn btn--big btn--green"><i class="fas fa-times"></i></button>
-            <button class="btn btn--big btn--blue"><i class="fas fa-divide"></i></button>
+            <button class="btn btn--big btn--red" data-type="addition"><i class="fas fa-plus"></i></button>
+            <button class="btn btn--big btn--yellow" data-type="subtract"><i class="fas fa-minus"></i></button>
+            <button class="btn btn--big btn--green" data-type="multiply"><i class="fas fa-times"></i></button>
+            <button class="btn btn--big btn--blue" data-type="divide"><i class="fas fa-divide"></i></button>
         </div>
         <div class="question-area">
             <span id="operand1">0</span>
@@ -27,7 +27,7 @@
             <span>=</span>  
             <p class="answer-message">Enter answer:</p>
             <input type="text" id="answer-box">
-            <button class="btn">Submit</button>      
+            <button class="btn" data-type="submit">Submit</button>      
         </div>
     </div>
     <div class="score-area">
