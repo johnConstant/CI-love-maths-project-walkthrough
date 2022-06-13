@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function(){
     for(let button of buttons){
         button.addEventListener('click', function(){
             if(this.getAttribute('data-type') === 'submit'){
-                alert('submitted');
+                checkAnswer()
+                document.getElementById('answer-box').value = '';
             }else{
                 let gameType = this.getAttribute('data-type');
                 startGame(gameType)
@@ -35,9 +36,38 @@ function startGame(gameType){
     }
 }
 
-function checkAnswer(){}
+/**
+ * check the userAnswer against the first element of the calculateAnswer array
+ */
+function checkAnswer(){
+    let correctAnswer = calculateAnswer();
+    let userAnswer = parseInt(document.getElementById('answer-box').value);
+    let isCorrect = userAnswer === correctAnswer[0];
 
-function calculateAnswer(){}
+    if(isCorrect){
+        alert('Well done, you got it right!')
+    }else{
+        alert(`Sorry but you guessed ${userAnswer} and the correct answer was ${correctAnswer[0]}`)
+    }
+    startGame(correctAnswer[1]);
+}
+
+/**
+ * Gets the operands (numbers) and operator (game type)
+ * directly from the DOM and calculates the answer
+ */
+function calculateAnswer(){
+    let operand1 = parseInt(document.getElementById('operand1').textContent);
+    let operand2 = parseInt(document.getElementById('operand2').textContent);
+    let operator = document.getElementById('operator').textContent;
+
+    if(operator === '+'){
+        return [operand1 + operand2, 'addition']
+    }else {
+        alert(`Unknown operator, ${operator}`);
+        throw `Unknown operator, ${operator}, aborting!`
+    }
+}
 
 function incrementScore(){}
 
