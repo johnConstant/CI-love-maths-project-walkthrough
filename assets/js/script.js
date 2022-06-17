@@ -24,8 +24,8 @@ function startGame(gameType){
 
     if(gameType === 'addition'){
         displayAdditionQuestion(num1, num2)
-    // }else if(gameType === 'subtract'){
-    //     displayAdditionQuestion(num1, num2)
+    }else if(gameType === 'subtract'){
+        displaySubtractionQuestion(num1, num2)
     }else if(gameType === 'multiply'){
         displayMultiplicationQuestion(num1, num2)
     // }else if(gameType === 'divide'){
@@ -65,6 +65,8 @@ function calculateAnswer(){
 
     if(operator === '+'){
         return [operand1 + operand2, 'addition']
+    }else if(operator === '-'){
+        return [operand1 - operand2, 'subtract']
     }else if(operator === 'x'){
         return [operand1 * operand2, 'multiply']
     }else {
@@ -91,7 +93,18 @@ function displayAdditionQuestion(operand1, operand2){
 
 }
 
-function displaySubtractionQuestion(){
+function displaySubtractionQuestion(operand1, operand2){
+    document.getElementById('operator').textContent = '-';
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+   
+    // if(operand1 < operand2){
+    //     document.getElementById('operand1').textContent = operand2;
+    //     document.getElementById('operand2').textContent = operand1;
+    // }else{
+    //     document.getElementById('operand1').textContent = operand1;
+    //     document.getElementById('operand2').textContent = operand2;
+    // }
     
 }
 
