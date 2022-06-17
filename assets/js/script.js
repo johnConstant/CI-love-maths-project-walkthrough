@@ -4,13 +4,17 @@ document.addEventListener('DOMContentLoaded', function(){
         button.addEventListener('click', function(){
             if(this.getAttribute('data-type') === 'submit'){
                 checkAnswer()
-                document.getElementById('answer-box').value = '';
             }else{
                 let gameType = this.getAttribute('data-type');
                 startGame(gameType)
             }
         })
     }
+    document.getElementById('answer-box').addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+            checkAnswer();
+        }
+    })
     startGame('addition')
 })
 
@@ -21,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function(){
 function startGame(gameType){
     let num1 = (Math.floor(Math.random() * 25)) + 1;
     let num2 = (Math.floor(Math.random() * 25)) + 1;
+    document.getElementById('answer-box').value = '';
+    document.getElementById('answer-box').focus();
 
     if(gameType === 'addition'){
         displayAdditionQuestion(num1, num2)
